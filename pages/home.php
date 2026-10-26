@@ -151,7 +151,7 @@
       <div class="container">
            <div class="row">
                 <div class="col-md-6 col-sm-6">
-                     <img src="images/appointment-image.jpg" class="img-responsive" alt="">
+                     <img src="images/dokter_heti.png" class="img-responsive" alt="Dokter RSU Permata Medika Kebumen" loading="lazy">
                 </div>
                 <div class="col-md-6 col-sm-6">
                      <form id="appointment-form" role="form" onsubmit="return validasiIsi();" method="post" action="index.php?act=PendaftaranPeriksa" enctype=multipart/form-data>
