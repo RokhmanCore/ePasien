@@ -1,0 +1,26 @@
+# Local secrets and environment files
+.env
+.env.*
+!.env.example
+conf/local-secrets.php
+
+# Runtime uploads and patient documents (never publish patient data)
+pages/upload/*
+!pages/upload/.gitkeep
+uploads/*
+!uploads/.gitkeep
+
+# Runtime/cache/logs and backups
+plugins/phpqrcode/cache/*
+!plugins/phpqrcode/cache/.gitkeep
+*.log
+*.sql
+*.sql.gz
+*.bak
+*.backup
+*.dump
+*.old
+*.tmp
+.DS_Store
+Thumbs.db
+conf/conf.php.backup
