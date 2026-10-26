@@ -79,7 +79,7 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="index.php?act=HomeUser"><?=$_SESSION["nama_instansi"];?></a>
+                <a class="navbar-brand" href="index.php?act=HomeUser" style="display:flex;align-items:center;gap:10px;"><img src="images/2026-10-26%2015.25.35.jpg" alt="Logo RSU Permata Medika Kebumen" style="height:38px;width:38px;object-fit:contain;"> <span><?=$_SESSION["nama_instansi"];?></span></a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
