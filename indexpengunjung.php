@@ -46,7 +46,7 @@
                          <span class="icon icon-bar"></span>
                          <span class="icon icon-bar"></span>
                     </button>
-                    <a href="index.php" class="navbar-brand"><i class="fa fa-h-square"></i>ealth Center</a>
+                    <a href="index.php" class="navbar-brand">RSU PERMATA MEDIKA KEBUMEN</a>
                </div>
                <!-- MENU LINKS -->
                <div class="collapse navbar-collapse">
