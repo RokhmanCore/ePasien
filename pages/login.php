@@ -11,7 +11,7 @@
           <div class="container">
                <div class="row">
                     <div class="col-md-6 col-sm-6">
-                         <img src="images/appointment-image.jpg" class="img-responsive" alt="">
+                         <img src="images/rspm.png" class="img-responsive" alt="RSU Permata Medika Kebumen">
                     </div>
                     <div class="col-md-6 col-sm-6">
                         <div class="section-title wow fadeInUp" data-wow-delay="0.4s">
