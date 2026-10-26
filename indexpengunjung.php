@@ -46,7 +46,7 @@
                          <span class="icon icon-bar"></span>
                          <span class="icon icon-bar"></span>
                     </button>
-                    <a href="index.php" class="navbar-brand">RSU PERMATA MEDIKA KEBUMEN</a>
+                    <a href="index.php" class="navbar-brand" style="display:flex;align-items:center;gap:10px;"><img src="images/2026-10-26%2015.25.35.jpg" alt="Logo RSU Permata Medika Kebumen" style="height:38px;width:38px;object-fit:contain;"> <span style="font-size:18px;">RSU PERMATA MEDIKA KEBUMEN</span></a>
                </div>
                <!-- MENU LINKS -->
                <div class="collapse navbar-collapse">
