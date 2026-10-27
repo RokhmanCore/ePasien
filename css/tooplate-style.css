@@ -1105,3 +1105,13 @@ http://www.tooplate.com/view/2098-health
     background: rgba(255,255,255,.62);
   }
 }
+
+
+/* Final override: soften the existing appointment background image without replacing it */
+#appointment {
+  background-color: rgba(255, 255, 255, 0.58) !important;
+  background-blend-mode: screen !important;
+}
+#appointment::before {
+  display: none !important;
+}
