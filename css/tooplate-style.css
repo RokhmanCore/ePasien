@@ -1055,3 +1055,17 @@ http://www.tooplate.com/view/2098-health
 
   }
 
+
+
+/* Fix booking page: keep hospital building image in the left area */
+#appointment {
+  background-size: 45% auto !important;
+  background-position: left center !important;
+  background-repeat: no-repeat !important;
+}
+@media (max-width: 767.98px) {
+  #appointment {
+    background-size: 100% auto !important;
+    background-position: center top !important;
+  }
+}
