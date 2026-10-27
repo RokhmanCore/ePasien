@@ -9,14 +9,14 @@
      <meta name="keywords" content=""/>
      <meta name="author" content="Tooplate"/>
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-     <link rel="stylesheet" href="css/bootstrap.min.css"/>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
      <link rel="stylesheet" href="css/font-awesome.min.css"/>
      <link rel="stylesheet" href="css/animate.css"/>
      <link rel="stylesheet" href="css/owl.carousel.css"/>
      <link rel="stylesheet" href="css/owl.theme.default.min.css"/>
      <link rel="stylesheet" href="css/tooplate-style.css"/>
 </head>
-<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+<body id="top" data-bs-spy="scroll" data-bs-target=".navbar-collapse" data-bs-offset="50">
      <!--<section class="preloader">
           <div class="spinner">
                <span class="spinner-rotate"></span>
@@ -38,24 +38,22 @@
           </div>
      </header>
     
-     <section class="navbar navbar-default navbar-static-top" role="navigation">
+     <nav class="navbar navbar-expand-lg navbar-default navbar-static-top" role="navigation">
           <div class="container">
-               <div class="navbar-header">
-                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                         <span class="icon icon-bar"></span>
-                         <span class="icon icon-bar"></span>
-                         <span class="icon icon-bar"></span>
+               <div class="navbar-header d-flex align-items-center justify-content-between flex-wrap">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#visitor-navbar-collapse" aria-controls="visitor-navbar-collapse" aria-expanded="false" aria-label="Buka menu">
+                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <a href="index.php" class="navbar-brand" style="display:flex;align-items:center;gap:10px;"><img src="images/2026-10-26%2015.25.35.jpg" alt="Logo RSU Permata Medika Kebumen" style="height:38px;width:38px;object-fit:contain;"> <span style="font-size:18px;">RSU PERMATA MEDIKA KEBUMEN</span></a>
                </div>
                <!-- MENU LINKS -->
-               <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
+               <div class="collapse navbar-collapse" id="visitor-navbar-collapse">
+                    <ul class="navbar-nav ms-auto">
                          <?php actionMenu()?>
                     </ul>
                </div>
           </div>
-     </section>
+     </nav>
     
      <?php actionPages();?>
 
@@ -137,7 +135,7 @@
           </div>
      </footer>
      <script src="js/jquery.js"></script>
-     <script src="js/bootstrap.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
      <script src="js/jquery.sticky.js"></script>
      <script src="js/jquery.stellar.min.js"></script>
      <script src="js/wow.min.js"></script>
