@@ -38,10 +38,10 @@
                          $passwordlama        = validTeks4($_POST['passwordlama'],25);
                          $passwordbaru        = validTeks4($_POST['passwordbaru'],25);
                          $passwordbaruulangi  = validTeks4($_POST['passwordbaruulangi'],25);
-                         if(getOne2("select AES_DECRYPT(personal_pasien.password,'" . EPASIEN_AES_KEY . "') from personal_pasien where personal_pasien.no_rkm_medis='".cleankar(encrypt_decrypt($_SESSION["ses_pasien"],"d"))."'")==$passwordlama){
+                         if(getOne2("select AES_DECRYPT(personal_pasien.password,'windi') from personal_pasien where personal_pasien.no_rkm_medis='".cleankar(encrypt_decrypt($_SESSION["ses_pasien"],"d"))."'")==$passwordlama){
                              if($passwordbaru==$passwordbaruulangi){
                                  if(strlen($passwordbaru)>5){
-                                     if(bukaquery2("update personal_pasien set password=AES_ENCRYPT('$passwordbaru','" . EPASIEN_AES_KEY . "') where personal_pasien.no_rkm_medis='".cleankar(encrypt_decrypt($_SESSION["ses_pasien"],"d"))."'")){
+                                     if(bukaquery2("update personal_pasien set password=AES_ENCRYPT('$passwordbaru','windi') where personal_pasien.no_rkm_medis='".cleankar(encrypt_decrypt($_SESSION["ses_pasien"],"d"))."'")){
                                          echo "<div class='row clearfix'>
                                                     <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
                                                         <div class='card'>
