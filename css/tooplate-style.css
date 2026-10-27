@@ -1157,3 +1157,26 @@ http://www.tooplate.com/view/2098-health
   position: relative;
   z-index: 1;
 }
+
+
+/* Correct target: background image behind #appointment booking section only */
+#appointment {
+  position: relative !important;
+  isolation: isolate !important;
+}
+#appointment::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: rgba(255,255,255,.55) !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+#appointment > *,
+#appointment .container,
+#appointment .row,
+#appointment #appointment-form {
+  position: relative;
+  z-index: 1;
+}
