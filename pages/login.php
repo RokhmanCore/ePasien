@@ -65,9 +65,14 @@
                                             header('Location: https://www.google.com');
                                         }else{
                                             if(getOne2("select count(*) from personal_pasien where md5(no_rkm_medis)=md5('$usere') and password=aes_encrypt('$passworde','" . EPASIEN_AES_KEY . "')")>0){
+                                                unset($_SESSION['login_pasien_gagal']);
                                                 $_SESSION["ses_pasien"]= encrypt_decrypt($usere,"e");
                                                 exit(header("Location:index.php"));
                                             }else{
+                                                $_SESSION['login_pasien_gagal'] = isset($_SESSION['login_pasien_gagal']) ? (int)$_SESSION['login_pasien_gagal'] + 1 : 1;
+                                                if ($_SESSION['login_pasien_gagal'] >= 3) {
+                                                    echo '<div class="col-md-12 col-sm-12"><div class="alert alert-danger" role="alert"><strong>Akses dibatasi sementara.</strong> Anda sudah 3 kali gagal login. Periksa kembali nomor rekam medis dan password Anda.</div></div>';
+                                                }
                                                 echo "<form id=\"appointment-form\" role=\"form\" onsubmit=\"return validasiIsi();\" method=\"post\" action=\"\" enctype=multipart/form-data>
                                                             <div class=\"col-md-12 col-sm-12\">
                                                                 <label for=\"norme\">Nomer Rekam Medis</label>
