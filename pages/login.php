@@ -24,6 +24,11 @@
                             <?php 
                                 $BtnLogin=isset($_POST['BtnLogin'])?$_POST['BtnLogin']:NULL;
                                 if (isset($BtnLogin)) {
+                                    if (isset($_SESSION['login_pasien_lock_until']) && time() < (int)$_SESSION['login_pasien_lock_until']) {
+                                        $sisaMenit = max(1, (int)ceil(((int)$_SESSION['login_pasien_lock_until'] - time()) / 60));
+                                        echo '<div class="col-md-12 col-sm-12"><div class="alert alert-danger" role="alert"><strong>Akses dibatasi sementara.</strong> Terlalu banyak percobaan login gagal. Silakan coba lagi sekitar '.$sisaMenit.' menit lagi.</div></div>';
+                                    } else {
+                                        unset($_SESSION['login_pasien_lock_until']);
                                     if(@$_SESSION["Capcay"]!= getOne2("select aes_encrypt(".cleankar($_POST["inputcaptcha"]).",'" . EPASIEN_AES_KEY . "')")){
                                         echo "<form id=\"appointment-form\" role=\"form\" onsubmit=\"return validasiIsi();\" method=\"post\" action=\"\" enctype=multipart/form-data>
                                                     <div class=\"col-md-12 col-sm-12\">
@@ -65,9 +70,15 @@
                                             header('Location: https://www.google.com');
                                         }else{
                                             if(getOne2("select count(*) from personal_pasien where md5(no_rkm_medis)=md5('$usere') and password=aes_encrypt('$passworde','" . EPASIEN_AES_KEY . "')")>0){
+                                                unset($_SESSION['login_pasien_gagal'], $_SESSION['login_pasien_lock_until']);
                                                 $_SESSION["ses_pasien"]= encrypt_decrypt($usere,"e");
                                                 exit(header("Location:index.php"));
                                             }else{
+                                                $_SESSION['login_pasien_gagal'] = isset($_SESSION['login_pasien_gagal']) ? (int)$_SESSION['login_pasien_gagal'] + 1 : 1;
+                                                if ($_SESSION['login_pasien_gagal'] >= 3) {
+                                                    $_SESSION['login_pasien_lock_until'] = time() + 900;
+                                                    echo '<div class="col-md-12 col-sm-12"><div class="alert alert-danger" role="alert"><strong>Akses dibatasi sementara.</strong> Anda sudah 3 kali gagal login. Silakan coba lagi dalam 15 menit.</div></div>';
+                                                } else {
                                                 echo "<form id=\"appointment-form\" role=\"form\" onsubmit=\"return validasiIsi();\" method=\"post\" action=\"\" enctype=multipart/form-data>
                                                             <div class=\"col-md-12 col-sm-12\">
                                                                 <label for=\"norme\">Nomer Rekam Medis</label>
@@ -100,8 +111,10 @@
                                                                 <button type=\"submit\" class=\"form-control\" id=\"cf-submit\" name=\"BtnLogin\">Log In</button>
                                                             </div>
                                                        </form>";
+                                                }
                                             }
                                         }
+                                    }
                                     }
                                 }else{
                                     echo "<form id=\"appointment-form\" role=\"form\" onsubmit=\"return validasiIsi();\" method=\"post\" action=\"\" enctype=multipart/form-data>
