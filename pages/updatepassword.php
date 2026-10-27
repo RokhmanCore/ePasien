@@ -18,7 +18,7 @@
                         </div>
                     </div>
                     <label for="passwordbaru">Password Baru</label>
-                    <div style="color:#dc3545; margin-bottom:10px; font-size:13px;">Perhatian: Password baru harus minimal 8 karakter serta mengandung kombinasi huruf besar, huruf kecil, angka, dan karakter khusus.</div>
+                    <div style="color:red; margin-bottom:10px; font-size:13px; font-weight:bold;">Perhatian: Password baru harus minimal 8 karakter serta mengandung kombinasi huruf besar, huruf kecil, angka, dan karakter khusus.</div>
                     <div class="form-group">
                         <div class="form-line">
                             <input name="passwordbaru" type="password" id="passwordbaru" class="form-control" placeholder="Masukkan password baru..." pattern="[a-zA-Z0-9, ./@_]{1,25}" title=" a-zA-Z0-9, ./@_ (Maksimal 25 karakter)" maxlength="25" autocomplete="off" required/>
