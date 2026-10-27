@@ -56,7 +56,7 @@
                                                     <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
                                                         <div class='card'>
                                                             <div class='body bg-success'>
-                                                                <center><h4>Gagal ubah password. Silahkan ulangi...!</h4><p style='color:#dc3545;'>Password baru harus minimal 8 karakter serta mengandung kombinasi huruf besar, huruf kecil, angka, dan karakter khusus.</p></center>
+                                                                <center><h4 style='color:#ff0000;'>Gagal ubah password. Silahkan ulangi...!</h4><p style='color:#ff0000; font-weight:bold;'>Password baru harus minimal 8 karakter serta mengandung kombinasi huruf besar, huruf kecil, angka, dan karakter khusus.</p></center>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -67,7 +67,7 @@
                                                 <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
                                                     <div class='card'>
                                                         <div class='body bg-success'>
-                                                            <center><h4>Gagal mengubah password.<br/>Password baru harus minimal 8 karakter serta mengandung kombinasi huruf besar, huruf kecil, angka, dan karakter khusus.</h4></center>
+                                                            <center><h4 style='color:#ff0000;'>Gagal mengubah password.<br/>Password baru harus minimal 8 karakter serta mengandung kombinasi huruf besar, huruf kecil, angka, dan karakter khusus.</h4></center>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -78,7 +78,7 @@
                                             <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
                                                 <div class='card'>
                                                     <div class='body bg-success'>
-                                                        <center><h4>Gagal mengubah password.<br/>Password baru harus cocok. Silahkan ulangi...!</h4><p style='color:#dc3545;'>Password baru harus minimal 8 karakter serta mengandung kombinasi huruf besar, huruf kecil, angka, dan karakter khusus.</p></center>
+                                                        <center><h4 style='color:#ff0000;'>Gagal mengubah password.<br/>Password baru harus cocok. Silahkan ulangi...!</h4><p style='color:#ff0000; font-weight:bold;'>Password baru harus minimal 8 karakter serta mengandung kombinasi huruf besar, huruf kecil, angka, dan karakter khusus.</p></center>
                                                     </div>
                                                 </div>
                                             </div>
@@ -89,7 +89,7 @@
                                         <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
                                             <div class='card'>
                                                 <div class='body bg-success'>
-                                                    <center><h4>Gagal mengubah password.<br/>Password lama salah. Silahkan ulangi...!</h4><p style='color:#dc3545;'>Password baru harus minimal 8 karakter serta mengandung kombinasi huruf besar, huruf kecil, angka, dan karakter khusus.</p></center>
+                                                    <center><h4 style='color:#ff0000;'>Gagal mengubah password.<br/>Password lama salah. Silahkan ulangi...!</h4><p style='color:#ff0000; font-weight:bold;'>Password baru harus minimal 8 karakter serta mengandung kombinasi huruf besar, huruf kecil, angka, dan karakter khusus.</p></center>
                                                 </div>
                                             </div>
                                         </div>
