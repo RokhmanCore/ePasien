@@ -71,7 +71,7 @@
                                             }else{
                                                 $_SESSION['login_pasien_gagal'] = isset($_SESSION['login_pasien_gagal']) ? (int)$_SESSION['login_pasien_gagal'] + 1 : 1;
                                                 if ($_SESSION['login_pasien_gagal'] >= 3) {
-                                                    echo '<div class="col-md-12 col-sm-12"><div class="alert alert-danger" role="alert"><strong>Akses dibatasi sementara.</strong> Anda sudah 3 kali gagal login. Periksa kembali nomor rekam medis dan password Anda.</div></div>';
+                                                    echo '<div class="col-md-12 col-sm-12"><div class="alert alert-danger" role="alert"><strong>Peringatan keamanan:</strong> Anda sudah 3 kali gagal login. Periksa kembali nomor rekam medis dan password Anda.</div></div>';
                                                 }
                                                 echo "<form id=\"appointment-form\" role=\"form\" onsubmit=\"return validasiIsi();\" method=\"post\" action=\"\" enctype=multipart/form-data>
                                                             <div class=\"col-md-12 col-sm-12\">
