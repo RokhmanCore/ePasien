@@ -71,7 +71,7 @@
                                             }else{
                                                 $_SESSION['login_pasien_gagal'] = isset($_SESSION['login_pasien_gagal']) ? (int)$_SESSION['login_pasien_gagal'] + 1 : 1;
                                                 if ($_SESSION['login_pasien_gagal'] == 2) {
-                                                    echo '<div class="col-md-12 col-sm-12"><div class="alert alert-warning" role="alert"><strong>(Gagal ke-2) Mohon periksa kembali.</strong><br>Nomor rekam medis atau kata sandi yang Anda masukkan belum sesuai. Silakan coba sekali lagi dengan teliti.</div></div>';
+                                                    echo '<div class="col-md-12 col-sm-12"><div class="alert alert-warning" role="alert" style="color: #dc3545;"><strong style="color: #dc3545;">(Gagal ke-2) Mohon periksa kembali.</strong><br><span style="color: #dc3545;">Nomor rekam medis atau kata sandi yang Anda masukkan belum sesuai. Silakan coba sekali lagi dengan teliti.</span></div></div>';
                                                 } elseif ($_SESSION['login_pasien_gagal'] >= 3) {
                                                     echo '<div class="col-md-12 col-sm-12"><div class="alert alert-danger" role="alert" style="color: #dc3545;"><strong style="color: #dc3545;">Terlalu banyak kesalahan login (3x).</strong> <span style="color: #dc3545;">Akses login dibatasi sementara. Silahkan hubungi Customer Service untuk membuka akses Anda.</span></div></div>';
                                                 }
