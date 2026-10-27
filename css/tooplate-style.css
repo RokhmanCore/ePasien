@@ -1055,32 +1055,3 @@ http://www.tooplate.com/view/2098-health
 
   }
 
-
-
-/* Bootstrap 5 compatibility: keep the booking hero image proportional */
-#appointment {
-  background-size: cover !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-  min-height: 560px;
-}
-#appointment .container {
-  max-width: 1140px;
-}
-#appointment-form {
-  max-width: 100%;
-  box-sizing: border-box;
-}
-@media (max-width: 767.98px) {
-  #appointment {
-    min-height: 0;
-    background-position: center top !important;
-    padding-top: 50px;
-    padding-bottom: 35px;
-  }
-  #appointment-form {
-    padding: 25px 18px !important;
-    background: rgba(255,255,255,.92);
-    border-radius: 8px;
-  }
-}
