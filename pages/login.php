@@ -73,7 +73,7 @@
                                                 if ($_SESSION['login_pasien_gagal'] == 2) {
                                                     echo '<div class="col-md-12 col-sm-12"><div class="alert alert-warning" role="alert"><strong>(Gagal ke-2) Mohon periksa kembali.</strong><br>Nomor rekam medis atau kata sandi yang Anda masukkan belum sesuai. Silakan coba sekali lagi dengan teliti.</div></div>';
                                                 } elseif ($_SESSION['login_pasien_gagal'] >= 3) {
-                                                    echo '<div class="col-md-12 col-sm-12"><div class="alert alert-danger" role="alert"><strong>Terlalu banyak kesalahan login (3x).</strong> Akses login dibatasi sementara. Silahkan hubungi Customer Service untuk membuka akses Anda.</div></div>';
+                                                    echo '<div class="col-md-12 col-sm-12"><div class="alert alert-danger" role="alert" style="color: #dc3545;"><strong style="color: #dc3545;">Terlalu banyak kesalahan login (3x).</strong> <span style="color: #dc3545;">Akses login dibatasi sementara. Silahkan hubungi Customer Service untuk membuka akses Anda.</span></div></div>';
                                                 }
                                                 echo "<form id=\"appointment-form\" role=\"form\" onsubmit=\"return validasiIsi();\" method=\"post\" action=\"\" enctype=multipart/form-data>
                                                             <div class=\"col-md-12 col-sm-12\">
