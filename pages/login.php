@@ -24,7 +24,7 @@
                             <?php 
                                 $BtnLogin=isset($_POST['BtnLogin'])?$_POST['BtnLogin']:NULL;
                                 if (isset($BtnLogin)) {
-                                    if(@$_SESSION["Capcay"]!= getOne2("select aes_encrypt(".cleankar($_POST["inputcaptcha"]).",'" . EPASIEN_AES_KEY . "')")){
+                                    if(@$_SESSION["Capcay"]!= getOne2("select aes_encrypt(".cleankar($_POST["inputcaptcha"]).",'windi')")){
                                         echo "<form id=\"appointment-form\" role=\"form\" onsubmit=\"return validasiIsi();\" method=\"post\" action=\"\" enctype=multipart/form-data>
                                                     <div class=\"col-md-12 col-sm-12\">
                                                         <label for=\"norme\">Nomer Rekam Medis</label>
@@ -64,7 +64,7 @@
                                         if(strlen($usere)>30){
                                             header('Location: https://www.google.com');
                                         }else{
-                                            if(getOne2("select count(*) from personal_pasien where md5(no_rkm_medis)=md5('$usere') and password=aes_encrypt('$passworde','" . EPASIEN_AES_KEY . "')")>0){
+                                            if(getOne2("select count(*) from personal_pasien where md5(no_rkm_medis)=md5('$usere') and password=aes_encrypt('$passworde','windi')")>0){
                                                 unset($_SESSION['login_pasien_gagal']);
                                                 $_SESSION["ses_pasien"]= encrypt_decrypt($usere,"e");
                                                 exit(header("Location:index.php"));
