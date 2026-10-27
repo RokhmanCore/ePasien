@@ -1115,3 +1115,26 @@ http://www.tooplate.com/view/2098-health
 #appointment::before {
   display: none !important;
 }
+
+
+/* Make only the appointment background image translucent; keep text and logo fully opaque */
+#appointment {
+  background-color: transparent !important;
+  background-blend-mode: normal !important;
+  position: relative;
+  isolation: isolate;
+}
+#appointment::before {
+  content: "";
+  display: block !important;
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,.58);
+  z-index: -1;
+  pointer-events: none;
+}
+#appointment > .container,
+#appointment .container {
+  position: relative;
+  z-index: 1;
+}
