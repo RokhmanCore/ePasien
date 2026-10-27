@@ -71,7 +71,7 @@
                                             }else{
                                                 $_SESSION['login_pasien_gagal'] = isset($_SESSION['login_pasien_gagal']) ? (int)$_SESSION['login_pasien_gagal'] + 1 : 1;
                                                 if ($_SESSION['login_pasien_gagal'] == 2) {
-                                                    echo '<div class="col-md-12 col-sm-12"><div class="alert alert-warning" role="alert"><strong>Mohon periksa kembali.</strong> Nomor rekam medis atau kata sandi yang Anda masukkan belum sesuai. Silakan coba sekali lagi dengan teliti.</div></div>';
+                                                    echo '<div class="col-md-12 col-sm-12"><div class="alert alert-warning" role="alert"><strong>(Gagal ke-2) Mohon periksa kembali.</strong><br>Nomor rekam medis atau kata sandi yang Anda masukkan belum sesuai. Silakan coba sekali lagi dengan teliti.</div></div>';
                                                 } elseif ($_SESSION['login_pasien_gagal'] >= 3) {
                                                     echo '<div class="col-md-12 col-sm-12"><div class="alert alert-danger" role="alert"><strong>Peringatan keamanan:</strong> Anda sudah 3 kali gagal login. Mohon periksa kembali nomor rekam medis dan kata sandi Anda.</div></div>';
                                                 }
