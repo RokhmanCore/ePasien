@@ -1180,3 +1180,16 @@ http://www.tooplate.com/view/2098-health
   position: relative;
   z-index: 1;
 }
+
+
+/* FIX: the booking building is an IMG in pages/home.php, not a CSS background.
+   Fade only that image; keep booking form, labels, and buttons fully opaque. */
+#appointment > .container > .row > div:first-child > img {
+  opacity: 0.28 !important;
+  transition: opacity .25s ease;
+}
+@media (max-width: 767.98px) {
+  #appointment > .container > .row > div:first-child > img {
+    opacity: 0.22 !important;
+  }
+}
