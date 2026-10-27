@@ -1138,3 +1138,22 @@ http://www.tooplate.com/view/2098-health
   position: relative;
   z-index: 1;
 }
+
+
+/* Actual hero/slider photos: fade only the building background, not its captions or logo */
+.slider .item {
+  position: relative;
+  isolation: isolate;
+}
+.slider .item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,.42);
+  z-index: -1;
+  pointer-events: none;
+}
+.slider .item .caption {
+  position: relative;
+  z-index: 1;
+}
