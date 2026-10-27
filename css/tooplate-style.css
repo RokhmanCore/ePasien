@@ -1069,3 +1069,39 @@ http://www.tooplate.com/view/2098-health
     background-position: center top !important;
   }
 }
+
+
+/* Elegant booking hero: retain large building image, soften it behind readable text */
+#appointment {
+  position: relative;
+  isolation: isolate;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+#appointment::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,.48);
+  z-index: -1;
+  pointer-events: none;
+}
+#appointment #appointment-form,
+#appointment form {
+  position: relative;
+  z-index: 1;
+}
+#appointment label,
+#appointment p,
+#appointment h1,
+#appointment h2,
+#appointment h3,
+#appointment a {
+  text-shadow: 0 1px 2px rgba(255,255,255,.7);
+}
+@media (max-width: 767.98px) {
+  #appointment::before {
+    background: rgba(255,255,255,.62);
+  }
+}
