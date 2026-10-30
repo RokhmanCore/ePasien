@@ -52,7 +52,7 @@
                                         <div class='row'>
                                             <div class='col-md-12 col-sm-12'>
                                                 <div class='about-info wow fadeInUp' data-wow-delay='0.1s'>
-                                                    <h3>No. Booking $nobooking</h3><br/>
+                                                    <h3>No. Booking ".htmlspecialchars((string)$nobooking, ENT_QUOTES, 'UTF-8')."</h3><br/>
                                                     Mohon maaf, booking Anda masih menunggu peninjauan dari admin Kami. Silahkan cek kembali beberapa saat lagi   
                                                 </div>
                                             </div>
@@ -67,8 +67,8 @@
                                         <div class='row'>
                                             <div class='col-md-12 col-sm-12'>
                                                 <div class='about-info wow fadeInUp' data-wow-delay='0.1s'>
-                                                    <h3>No. Booking $nobooking</h3><br/>
-                                                    Mohon maaf, booking Anda ditolak".($balasan==""?"":". $balasan").". Silahkan buat janji/booking kembali untuk tanggal/poli yang lain
+                                                    <h3>No. Booking ".htmlspecialchars((string)$nobooking, ENT_QUOTES, 'UTF-8')."</h3><br/>
+                                                    Mohon maaf, booking Anda ditolak".($balasan==""?"":". ".htmlspecialchars((string)$balasan, ENT_QUOTES, 'UTF-8')).". Silahkan buat janji/booking kembali untuk tanggal/poli yang lain
                                                 </div>
                                             </div>
                                         </div>
@@ -76,7 +76,7 @@
                                   </section>";
                             JSRedirect2("index.php?act=Home#appointment",14);
                         }else if($rsquerycekbooking["status"]=="Diterima"){
-                            $querycekbookingperiksa = bukaquery("select booking_registrasi.tanggal_booking,booking_registrasi.jam_booking,booking_registrasi.no_rkm_medis,booking_periksa.nama,booking_periksa.alamat,booking_periksa.no_telp,booking_periksa.email,booking_registrasi.tanggal_periksa,dokter.nm_dokter,poliklinik.nm_poli,booking_registrasi.no_reg,aes_decrypt(personal_pasien.password,'" . EPASIEN_AES_KEY . "') as pass from booking_registrasi inner join dokter on booking_registrasi.kd_dokter=dokter.kd_dokter inner join poliklinik on booking_registrasi.kd_poli=poliklinik.kd_poli inner join booking_periksa_diterima on booking_periksa_diterima.no_rkm_medis=booking_registrasi.no_rkm_medis inner join booking_periksa on booking_periksa_diterima.no_booking=booking_periksa.no_booking inner join personal_pasien on booking_registrasi.no_rkm_medis=personal_pasien.no_rkm_medis where booking_periksa.no_booking='$nobooking'"); 
+                            $querycekbookingperiksa = bukaquery("select booking_registrasi.tanggal_booking,booking_registrasi.jam_booking,booking_registrasi.no_rkm_medis,booking_periksa.nama,booking_periksa.alamat,booking_periksa.no_telp,booking_periksa.email,booking_registrasi.tanggal_periksa,dokter.nm_dokter,poliklinik.nm_poli,booking_registrasi.no_reg from booking_registrasi inner join dokter on booking_registrasi.kd_dokter=dokter.kd_dokter inner join poliklinik on booking_registrasi.kd_poli=poliklinik.kd_poli inner join booking_periksa_diterima on booking_periksa_diterima.no_rkm_medis=booking_registrasi.no_rkm_medis inner join booking_periksa on booking_periksa_diterima.no_booking=booking_periksa.no_booking inner join personal_pasien on booking_registrasi.no_rkm_medis=personal_pasien.no_rkm_medis where booking_periksa.no_booking='$nobooking'"); 
                             if($rsquerycekbookingperiksa = mysqli_fetch_array($querycekbookingperiksa)) {
                                 $balasan = getOne2("select balasan from booking_periksa_balasan where no_booking='$nobooking'");
                                 echo "<section id='news' data-stellar-background-ratio='2.5'>
@@ -84,23 +84,23 @@
                                             <div class='row'>
                                                 <div class='col-md-12 col-sm-12'>
                                                     <div class='about-info wow fadeInUp' data-wow-delay='0.1s'>
-                                                        <h3>No. Booking $nobooking</h3><br/>
-                                                        Booking Anda diterima, admin Kami sudah melakukan verifikasi data Anda".($balasan==""?"":".<br/>$balasan").".<br/><br/>
+                                                        <h3>No. Booking ".htmlspecialchars((string)$nobooking, ENT_QUOTES, 'UTF-8')."</h3><br/>
+                                                        Booking Anda diterima, admin Kami sudah melakukan verifikasi data Anda".($balasan==""?"":".<br/>".htmlspecialchars((string)$balasan, ENT_QUOTES, 'UTF-8')).".<br/><br/>
                                                         <div class='news-thumb wow fadeInUp' data-wow-delay='0.2s'>
                                                             <br/>
                                                             <b>
                                                                <table width='95%' border='0' align='center'>
-                                                                 <tr><td width='29%' align='left' valign='top'>Tgl. Booking</td><td valign='top' width='3%' align='center'>:</td><td width='68%' align='left' valign='top'>".$rsquerycekbookingperiksa["tanggal_booking"]." ".$rsquerycekbookingperiksa["jam_booking"]."</td></tr>
-                                                                 <tr><td width='29%' align='left' valign='top'>Tgl. Periksa</td><td valign='top' width='3%' align='center'>:</td><td width='68%' align='left' valign='top'>".$rsquerycekbookingperiksa["tanggal_periksa"]."</td></tr>
-                                                                 <tr><td width='29%' align='left' valign='top'>No.Rekam Medis</td><td valign='top' width='3%' align='center'>:</td><td width='68%' align='left' valign='top'>".$rsquerycekbookingperiksa["no_rkm_medis"]."</td></tr>
-                                                                 <tr><td width='29%' align='left' valign='top'>Nama Pasien</td><td valign='top' width='3%' align='center'>:</td><td width='68%' align='left' valign='top'>".$rsquerycekbookingperiksa["nama"]."</td></tr>
-                                                                 <tr><td width='29%' align='left' valign='top'>No. Hp/Telp</td><td valign='top' width='3%' align='center'>:</td><td width='68%' align='left' valign='top'>".$rsquerycekbookingperiksa["no_telp"]."</td></tr>
-                                                                 <tr><td width='29%' align='left' valign='top'>E-Mail</td><td valign='top' width='3%' align='center'>:</td><td width='68%' align='left' valign='top'>".$rsquerycekbookingperiksa["email"]."</td></tr>
-                                                                 <tr><td width='29%' align='left' valign='top'>Alamat</td><td valign='top' width='3%' align='center'>:</td><td width='68%' align='left' valign='top'>".$rsquerycekbookingperiksa["alamat"]."</td></tr>
-                                                                 <tr><td width='29%' align='left' valign='top'>Unit/Poliklinik</td><td valign='top' width='3%' align='center'>:</td><td width='68%' align='left' valign='top'>".$rsquerycekbookingperiksa["nm_poli"]."</td></tr>
-                                                                 <tr><td width='29%' align='left' valign='top'>Dokter</td><td valign='top' width='3%' align='center'>:</td><td width='68%' align='left' valign='top'>".$rsquerycekbookingperiksa["nm_dokter"]."</td></tr>
-                                                                 <tr><td width='29%' align='left' valign='top'>No.Antri Poli</td><td valign='top' width='3%' align='center'>:</td><td width='68%' align='left' valign='top'>".$rsquerycekbookingperiksa["no_reg"]."</td></tr>
-                                                                 <tr><td width='29%' align='left' valign='top'>Password Login</td><td valign='top' width='3%' align='center'>:</td><td width='68%' align='left' valign='top'>".$rsquerycekbookingperiksa["pass"]."</td></tr>
+                                                                 <tr><td width='29%' align='left' valign='top'>Tgl. Booking</td><td valign='top' width='3%' align='center'>:</td><td width='68%' align='left' valign='top'>".htmlspecialchars((string)$rsquerycekbookingperiksa["tanggal_booking"], ENT_QUOTES, 'UTF-8')." ".htmlspecialchars((string)$rsquerycekbookingperiksa["jam_booking"], ENT_QUOTES, 'UTF-8')."</td></tr>
+                                                                 <tr><td width='29%' align='left' valign='top'>Tgl. Periksa</td><td valign='top' width='3%' align='center'>:</td><td width='68%' align='left' valign='top'>".htmlspecialchars((string)$rsquerycekbookingperiksa["tanggal_periksa"], ENT_QUOTES, 'UTF-8')."</td></tr>
+                                                                 <tr><td width='29%' align='left' valign='top'>No.Rekam Medis</td><td valign='top' width='3%' align='center'>:</td><td width='68%' align='left' valign='top'>".htmlspecialchars((string)$rsquerycekbookingperiksa["no_rkm_medis"], ENT_QUOTES, 'UTF-8')."</td></tr>
+                                                                 <tr><td width='29%' align='left' valign='top'>Nama Pasien</td><td valign='top' width='3%' align='center'>:</td><td width='68%' align='left' valign='top'>".htmlspecialchars((string)$rsquerycekbookingperiksa["nama"], ENT_QUOTES, 'UTF-8')."</td></tr>
+                                                                 <tr><td width='29%' align='left' valign='top'>No. Hp/Telp</td><td valign='top' width='3%' align='center'>:</td><td width='68%' align='left' valign='top'>".htmlspecialchars((string)$rsquerycekbookingperiksa["no_telp"], ENT_QUOTES, 'UTF-8')."</td></tr>
+                                                                 <tr><td width='29%' align='left' valign='top'>E-Mail</td><td valign='top' width='3%' align='center'>:</td><td width='68%' align='left' valign='top'>".htmlspecialchars((string)$rsquerycekbookingperiksa["email"], ENT_QUOTES, 'UTF-8')."</td></tr>
+                                                                 <tr><td width='29%' align='left' valign='top'>Alamat</td><td valign='top' width='3%' align='center'>:</td><td width='68%' align='left' valign='top'>".htmlspecialchars((string)$rsquerycekbookingperiksa["alamat"], ENT_QUOTES, 'UTF-8')."</td></tr>
+                                                                 <tr><td width='29%' align='left' valign='top'>Unit/Poliklinik</td><td valign='top' width='3%' align='center'>:</td><td width='68%' align='left' valign='top'>".htmlspecialchars((string)$rsquerycekbookingperiksa["nm_poli"], ENT_QUOTES, 'UTF-8')."</td></tr>
+                                                                 <tr><td width='29%' align='left' valign='top'>Dokter</td><td valign='top' width='3%' align='center'>:</td><td width='68%' align='left' valign='top'>".htmlspecialchars((string)$rsquerycekbookingperiksa["nm_dokter"], ENT_QUOTES, 'UTF-8')."</td></tr>
+                                                                 <tr><td width='29%' align='left' valign='top'>No.Antri Poli</td><td valign='top' width='3%' align='center'>:</td><td width='68%' align='left' valign='top'>".htmlspecialchars((string)$rsquerycekbookingperiksa["no_reg"], ENT_QUOTES, 'UTF-8')."</td></tr>
+                                                                 
                                                                </table>
                                                             </b>
                                                             <br/>
